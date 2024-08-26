@@ -10,4 +10,12 @@ class UserDao{
         $this -> conection= new PDO($dsn, 'root', '');
     }
 
-}
+
+    public function teste(){
+        if ($this -> conection) {
+            echo " conexao realizada com sucesso";
+        }
+   }
+     
+} 
+
