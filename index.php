@@ -11,11 +11,11 @@ switch ($url) {
             echo "FAZER CADASTRO";
             break;
 
-            case '/LIGAS':
+            case '/login':
                 echo "LIGAS";
                 break;
 
-                case '/artilharia':
+                case '/estatisticas':
                     echo "lewandowski";
                       break;
 
@@ -23,13 +23,11 @@ switch ($url) {
                         echo "jogo unico";
                           break;
 
-                          case '/assistencias':
-                            echo "de bruyne";
+                          case '/classificação':
+                            echo "criar";
                               break;
 
-                              case '/jogos sem sofrer gols':
-                                echo "tafarel";
-                                  break;
+                             
 
     
     default:
