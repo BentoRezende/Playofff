@@ -1,10 +1,10 @@
 <?php
-
+include 'App/MVC/Controller/UserController.php';
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($url) {
     case '/':
-        echo "PAGINA INICIAL";
+       UserController::index();
         break;
 
         case '/CADASTRO':
@@ -12,19 +12,16 @@ switch ($url) {
             break;
 
             case '/login':
-                echo "LIGAS";
+                UserController::login();
                 break;
 
-                case '/estatisticas':
-                    echo "lewandowski";
+                case '/sumario':
+                    UserController::sumario();
                       break;
 
-                      case '/mata-mata':
-                        echo "jogo unico";
-                          break;
 
                           case '/classificação':
-                            echo "criar";
+                            UserController::chaveamento();
                               break;
 
                              

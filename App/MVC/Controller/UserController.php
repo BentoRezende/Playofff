@@ -4,29 +4,29 @@ class UserController{
 
     public static function index(){
 
-include 'View/Modules/PaginaInicial/Index.php';
+include 'App/MVC/View/Modules/PaginaInicial/Index.php';
 
     }
 
     public static function login(){
 
-include 'View/Modules/Login/index.php';
+include 'App/MVC/View/Modules/Login/index.php';
         
     }
 
     public static function chaveamento(){
 
-        include 'View/Modules/Chaveamento/index.php';
+        include 'App/MVC/View/Modules/Chaveamento/index.php';
                 
             }
             public static function sobreosite(){
 
-                include 'View/Modules/SobreOsite/index.php';
+                include 'App/MVC/View/Modules/SobreOsite/index.php';
                         
                     }
                     public static function sumario(){
 
-                        include 'View/Modules/Sumario/index.php';
+                        include 'App/MVC/View/Modules/Sumario/index.php';
                                 
                             }
 }
