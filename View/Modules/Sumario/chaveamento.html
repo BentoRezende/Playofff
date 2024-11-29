@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayOffs Moderno e Editável</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <aside>
+        <nav>
+            <ul>
+               
+                <li><a href="index.php">Sumário</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <h2>PlayOffs</h2>
+        <div class="bracket">
+            <div class="round">
+                <div class="match"><input type="text" value="nome do time" class="team-input"></div>
+                <div class="match"><input type="text" value="nome do time" class="team-input"></div>
+                <div class="match"><input type="text" value="nome do time" class="team-input"></div>
+                <div class="match"><input type="text" value="nome do time" class="team-input"></div>
+            </div>
+            <div class="round">
+                <div class="match"><input type="text" value="nome do time" class="team-input"></div>
+                <div class="match"><input type="text" value="nome do time" class="team-input"></div>
+            </div>
+            <div class="round">
+                <div class="match"><input type="text" value="nome do time" class="team-input"></div>
+                <div class="match"><input type="text" value="nome do time" class="team-input"></div>
+            </div>
+            <div class="round final">
+                <div class="match"><input type="text" value="Finalista" class="team-input"></div>
+            </div>
+        </div>
+        <button id="save-btn">Salvar</button>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<style>
+    /* Importando a fonte Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0A0E1A;
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.6;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Estilo do menu lateral */
+aside {
+    width: 200px;
+    background-color: #3A1E68;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 20px 0;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #dcdcdc;
+}
+
+/* Estilo do main */
+main {
+    margin-left: 220px;
+    flex-grow: 1;
+    padding: 50px;
+}
+
+/* Título do playoff */
+main h2 {
+    margin-top: 20px;
+    font-size: 28px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Estilos da tabela de chaveamento */
+.bracket {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    max-width: 1000px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #141A29;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.round {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 30px;
+    padding: 10px;
+}
+
+.match {
+    background-color: #1F2538;
+    padding: 25px;
+    margin: 15px 0;
+    border-radius: 15px;
+    color: #ffffff;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.match:hover {
+    background-color: #4E2CAD;
+    transform: translateY(-5px);
+}
+
+/* Estilo dos inputs */
+.team-input {
+    background-color: #2C3246;
+    border: none;
+    border-radius: 20px;
+    padding: 20px 30px;
+    color: #e3e3e3;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    width: 200px;
+    transition: background-color 0.3s ease;
+}
+
+.team-input:focus {
+    outline: none;
+    background-color: #634DBF;
+    color: #ffffff;
+}
+
+/* Botão Confirmar */
+button {
+    background-color: #634DBF;
+    color: #ffffff;
+    border: none;
+    padding: 15px 50px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    top: -20px; /* Mover o botão para cima */
+}
+
+button:hover {
+    background-color: #4E2CAD;
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .bracket {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .round {
+        margin: 20px 0;
+    }
+
+    aside {
+        width: 150px;
+    }
+
+    main {
+        margin-left: 170px;
+    }
+}
+
+</style>
+
+   
+    

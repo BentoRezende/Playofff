@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Time Gamificado</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5);
+            width: 400px;
+            text-align: center;
+        }
+        .container h2 {
+            font-size: 28px;
+            color: #AA60DC;
+            margin-bottom: 20px;
+        }
+        .container label {
+            display: block;
+            margin: 15px 0 5px;
+            font-size: 14px;
+            text-align: left;
+        }
+        .container input[type="text"],
+        .container input[type="email"],
+        .container input[type="file"],
+        .container input[type="password"],
+        .container select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: #555;
+            color: #fff;
+            font-size: 16px;
+        }
+        .container input[type="file"] {
+            padding: 5px;
+        }
+        .container button {
+            background-color: #AA60DC;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .container button:hover {
+            background-color: #e67e22;
+        }
+        .container .progress {
+            background-color: #444;
+            border-radius: 10px;
+            margin: 20px 0;
+            padding: 3px;
+        }
+        .container .progress-bar {
+            width: 50%; /* Você pode modificar para mostrar o progresso de registro */
+            height: 20px;
+            background-color: #27ae60;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            line-height: 20px;
+        }
+        .preview {
+            margin: 10px 0;
+        }
+        .preview img {
+            max-width: 150px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Registro de Time</h2>
+
+        <label for="teamName">Nome do Time</label>
+        <input type="text" id="teamName" name="teamName" placeholder="Digite o nome do time" required>
+
+        <label for="teamLogo">Logotipo do Time</label>
+        <input type="file" id="teamLogo" name="teamLogo" accept="image/*" onchange="previewLogo()" required>
+
+        <div class="preview" id="logoPreview"></div>
+
+        <label for="captainName">Nome do Capitão</label>
+        <input type="text" id="captainName" name="captainName" placeholder="Nome do Capitão" required>
+
+        <label for="email">E-mail de Contato</label>
+        <input type="email" id="email" name="email" placeholder="email@contato.com" required>
+
+
+        <div class="progress">
+            <div class="progress-bar">50% completo</div>
+        </div>
+
+        <button type="submit">Registrar Time</button>
+    </div>
+
+    <script>
+        // Função para pré-visualizar o logotipo do time
+        function previewLogo() {
+            const fileInput = document.getElementById('teamLogo');
+            const preview = document.getElementById('logoPreview');
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.innerHTML = '<img src="' + e.target.result + '" alt="Logo do time">';
+                }
+
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                preview.innerHTML = '';
+            }
+        }
+    </script>
+
+</body>
+</html>

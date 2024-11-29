@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação Playoff</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a2e;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3a0ca3;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            display: none; /* Esconder o header */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #3a0ca3;
+        }
+
+        nav a {
+            color: #ffba08;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #16213e;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #555;
+        }
+
+        th {
+            background-color: #0f3460;
+            color: #ffba08;
+            text-transform: uppercase;
+        }
+
+        td {
+            background-color: #1b1b2f;
+        }
+
+        tr:hover {
+            background-color: #0f3460;
+        }
+
+        /* Campos editáveis */
+        .editable {
+            background-color: transparent;
+            border: none;
+            color: white;
+            width: 100%;
+            text-align: left;
+        }
+
+        .editable:focus {
+            outline: none;
+            border-bottom: 1px solid #ffba08;
+        }
+
+        /* Modern buttons */
+        .button-group {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .button-group button {
+            background-color: #ffba08;
+            border: none;
+            color: #1a1a2e;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .button-group button:hover {
+            background-color: #ffba80;
+        }
+    </style>
+</head>
+<body>
+
+<header>PlayOff</header>
+
+<nav>
+    <li><a href="index.php">Sumário</a></li> 
+    
+</nav>
+
+<div class="container">
+    <h2>Classificação</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Times</th>
+                <th>Pts</th>
+                <th>PJ</th>
+                <th>VIT</th>
+                <th>E</th>
+                <th>DER</th>
+                <th>GM</th>
+                <th>GS</th>
+                <th>SG</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <tr>
+                <td><input type="text" class="editable" value="Time 1"></td>
+                <td><input type="text" class="editable" value="10"></td>
+                <td><input type="text" class="editable" value="5"></td>
+                <td><input type="text" class="editable" value="3"></td>
+                <td><input type="text" class="editable" value="1"></td>
+                <td><input type="text" class="editable" value="1"></td>
+                <td><input type="text" class="editable" value="8"></td>
+                <td><input type="text" class="editable" value="4"></td>
+                <td><input type="text" class="editable" value="4"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="editable" value="Time 2"></td>
+                <td><input type="text" class="editable" value="8"></td>
+                <td><input type="text" class="editable" value="5"></td>
+                <td><input type="text" class="editable" value="2"></td>
+                <td><input type="text" class="editable" value="2"></td>
+                <td><input type="text" class="editable" value="1"></td>
+                <td><input type="text" class="editable" value="7"></td>
+                <td><input type="text" class="editable" value="5"></td>
+                <td><input type="text" class="editable" value="2"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="button-group">
+        <button id="add-row-btn">Adicionar Linha</button>
+        <button id="delete-row-btn">Excluir Linha</button>
+    </div>
+</div>
+
+<script>
+    // Funções de navegação para "Sobre o site" e "Sumário"
+    document.getElementById("sumario-link").addEventListener("click", function () {
+        alert("Aqui você verá o Sumário do site.");
+    });
+
+    document.getElementById("sobre-site-link").addEventListener("click", function () {
+        alert("Aqui você verá informações sobre o site.");
+    });
+
+    // Função para adicionar uma nova linha editável à tabela
+    document.getElementById("add-row-btn").addEventListener("click", function () {
+        const tableBody = document.getElementById("table-body");
+        const newRow = document.createElement("tr");
+
+        const newCells = [
+            { type: 'text', value: 'Novo Time' },
+            { type: 'text', value: '0' },
+            { type: 'text', value: '0' },
+            { type: 'text', value: '0' },
+            { type: 'text', value: '0' },
+            { type: 'text', value: '0' },
+            { type: 'text', value: '0' },
+            { type: 'text', value: '0' },
+            { type: 'text', value: '0' }
+        ];
+
+        newCells.forEach(function (cellData) {
+            const newCell = document.createElement("td");
+            const input = document.createElement("input");
+            input.type = cellData.type;
+            input.className = "editable";
+            input.value = cellData.value;
+            newCell.appendChild(input);
+            newRow.appendChild(newCell);
+        });
+
+        tableBody.appendChild(newRow);
+    });
+
+    // Função para excluir a última linha da tabela
+    document.getElementById("delete-row-btn").addEventListener("click", function () {
+        const tableBody = document.getElementById("table-body");
+        if (tableBody.rows.length > 0) {
+            tableBody.deleteRow(tableBody.rows.length - 1);
+        }
+    });
+</script>
+
+</body>
+</html>

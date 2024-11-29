@@ -1,0 +1,135 @@
+/* Importando a fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #10141F;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Header e navegação */
+header {
+    background-color: #5A2ECD;
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #e3e3e3;
+}
+
+/* Layout principal */
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.menu {
+    background-color: #1B1F31;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.menu h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu ul li {
+    margin: 20px 0;
+    position: relative;
+}
+
+.menu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+    display: block;
+    padding: 10px 20px;
+    background-color: #292E44;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.menu ul li a:hover {
+    background-color: #5A2ECD;
+    transform: translateX(10px);
+}
+
+/* Linha decorativa */
+.menu ul li a:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 100%;
+    background-color: #5A2ECD;
+    border-radius: 8px 0 0 8px;
+    transition: width 0.3s ease;
+}
+
+.menu ul li a:hover:before {
+    width: 8px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        text-align: center;
+    }
+    
+    nav ul {
+        flex-direction: column;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    main {
+        padding: 0 10px;
+    }
+
+    .menu {
+        padding: 20px;
+    }
+
+    .menu ul li a {
+        font-size: 18px;
+    }
+}
